@@ -34,7 +34,7 @@ public function createPoll(){
 $poll = Poll::create([
     'title' => $this->title
 ]);
-
+$this->dispatch('pollCreated');
 foreach ($this->options as $optionName) {
 $poll->options()->create(['name' => $optionName]);
 }
